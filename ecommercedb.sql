@@ -4,49 +4,49 @@
 -- Architecture         x86_64-linux                                                             
 -- Target Database      postgres                                                                 
 -- Input file           ECommerceDB.dia                                                          
--- Generated at         Mon Dec  5 20:58:00 2016                                                 
+-- Generated at         Thu Dec  8 20:58:55 2016                                                 
 -- Typemap for postgres not found in input file                                                  
 
 -- get_constraints_drop 
-alter table Sales_Order drop constraint fk_coupon_id_order ;
-alter table Product_Tag drop constraint fk_produc_product_tag ;
-alter table Product_Tag drop constraint fk_tag_product_tag ;
-alter table Ec_User_Role drop constraint fk_role_id_ec_user_role ;
-alter table Ec_User_Role drop constraint fk_ec_user_ec_user_role ;
-alter table Product_Category drop constraint fk_category_product_category ;
-alter table Sales_Order drop constraint fk_timeframe_sales_order ;
-alter table Sales_Order drop constraint fk_user_sales_order ;
-alter table Sales_Order drop constraint fk_session_sales_order ;
-alter table Product drop constraint fk_product_status_product ;
-alter table Order_Product drop constraint fk_order_order_product ;
-alter table CC_Transaction drop constraint fk_order_cc_transaction ;
-alter table Product_Category drop constraint fk_product_product_category ;
+alter table sales_orders drop constraint fk_coupon_order ;
+alter table product_tags drop constraint fk_producs_product_tags ;
+alter table product_tags drop constraint fk_tags_product_tags ;
+alter table user_roles drop constraint fk_roles_user_roles ;
+alter table user_roles drop constraint fk_users_user_roles ;
+alter table product_categories drop constraint fk_category_products_categories ;
+alter table sales_orders drop constraint fk_time_frame_sales_order ;
+alter table sales_orders drop constraint fk_user_sales_order ;
+alter table sales_orders drop constraint fk_session_sales_order ;
+alter table products drop constraint fk_product_statuses_product ;
+alter table order_products drop constraint fk_sales_orders_order_products ;
+alter table cc_transactions drop constraint fk_sales_order_cc_transaction ;
+alter table product_categories drop constraint fk_product_product_category ;
 
 -- get_permissions_drop 
 
 -- get_view_drop
 
 -- get_schema_drop
-drop table Ec_User;
-drop table Role;
-drop table Ec_User_Role;
-drop table Timeframe;
-drop table Category;
-drop table Product;
-drop table Tag;
-drop table Sales_Order;
-drop table Coupon;
-drop table Product_Tag;
-drop table CC_Transaction;
-drop table Session;
-drop table Product_Status;
-drop table Product_Category;
-drop table Order_Product;
+drop table users;
+drop table roles;
+drop table user_roles;
+drop table time_frames;
+drop table categories;
+drop table products;
+drop table tags;
+drop table sales_orders;
+drop table coupons;
+drop table product_tags;
+drop table cc_transactions;
+drop table sessions;
+drop table product_statuses;
+drop table product_categories;
+drop table order_products;
 
 -- get_smallpackage_pre_sql 
 
 -- get_schema_create
-create table Ec_User (
+create table users (
    id          serial                   not null,
    username    varchar(255) unique              ,
    first_name  varchar(255)                     ,
@@ -54,38 +54,38 @@ create table Ec_User (
    active      bool                             ,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Ec_User primary key (id)
+   constraint pk_users primary key (id)
 )   ;
-create table Role (
+create table roles (
    id          serial                   not null,
    name        varchar(255)                     ,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Role primary key (id)
+   constraint pk_roles primary key (id)
 )   ;
-create table Ec_User_Role (
+create table user_roles (
    user_id     integer                  not null,
    role_id     integer                  not null,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Ec_User_Role primary key (user_id,role_id)
+   constraint pk_user_roles primary key (user_id,role_id)
 )   ;
-create table Timeframe (
+create table time_frames (
    id          serial                   not null,
    start_time  time with time zone              ,
    end_time    time with time zone              ,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Timeframe primary key (id)
+   constraint pk_time_frames primary key (id)
 )   ;
-create table Category (
+create table categories (
    id          serial                   not null,
    name        varchar(255)                     ,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Category primary key (id)
+   constraint pk_categories primary key (id)
 )   ;
-create table Product (
+create table products (
    sku               varchar(255)             not null,
    name              varchar(255)                     ,
    description       text                             ,
@@ -97,16 +97,16 @@ create table Product (
    taxable           bool                             ,
    inserted_at       timestamp with time zone         ,
    updated_at        timestamp with time zone         ,
-   constraint pk_Product primary key (sku)
+   constraint pk_products primary key (sku)
 )   ;
-create table Tag (
+create table tags (
    id          serial                   not null,
    name        varchar(255)                     ,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Tag primary key (id)
+   constraint pk_tags primary key (id)
 )   ;
-create table Sales_Order (
+create table sales_orders (
    id           serial                   not null,
    order_date   date                             ,
    total        numeric                          ,
@@ -116,9 +116,9 @@ create table Sales_Order (
    timeframe_id integer                          ,
    inserted_at  timestamp with time zone         ,
    updated_at   timestamp with time zone         ,
-   constraint pk_Sales_Order primary key (id)
+   constraint pk_sales_orders primary key (id)
 )   ;
-create table Coupon (
+create table coupons (
    id          serial                   not null      ,
    code        varchar(255)                           ,
    description text                                   ,
@@ -129,16 +129,16 @@ create table Coupon (
    multiple    bool                      default false,
    inserted_at timestamp with time zone               ,
    updated_at  timestamp with time zone               ,
-   constraint pk_Coupon primary key (id)
+   constraint pk_coupons primary key (id)
 )   ;
-create table Product_Tag (
+create table product_tags (
    product_sku varchar(255)             not null,
    tag_id      integer                  not null,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Product_Tag primary key (product_sku,tag_id)
+   constraint pk_product_tags primary key (product_sku,tag_id)
 )   ;
-create table CC_Transaction (
+create table cc_transactions (
    code               varchar(255)             not null,
    order_id           integer                          ,
    transdate          timestamp with time zone         ,
@@ -151,30 +151,30 @@ create table CC_Transaction (
    response           text                             ,
    inserted_at        timestamp with time zone         ,
    updated_at         timestamp with time zone         ,
-   constraint pk_CC_Transaction primary key (code)
+   constraint pk_cc_transactions primary key (code)
 )   ;
-create table Session (
+create table sessions (
    id          varchar(255)             not null,
    data        text                             ,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Session primary key (id)
+   constraint pk_sessions primary key (id)
 )   ;
-create table Product_Status (
+create table product_statuses (
    id          serial                   not null,
    name        varchar(255)                     ,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Product_Status primary key (id)
+   constraint pk_product_statuses primary key (id)
 )   ;
-create table Product_Category (
+create table product_categories (
    category_id integer                  not null,
    product_sku varchar(255)             not null,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Product_Category primary key (category_id,product_sku)
+   constraint pk_product_categories primary key (category_id,product_sku)
 )   ;
-create table Order_Product (
+create table order_products (
    sku         varchar(255)             not null,
    order_id    integer                  not null,
    name        varchar(255)                     ,
@@ -184,7 +184,7 @@ create table Order_Product (
    subtotal    numeric                          ,
    inserted_at timestamp with time zone         ,
    updated_at  timestamp with time zone         ,
-   constraint pk_Order_Product primary key (sku,order_id)
+   constraint pk_order_products primary key (sku,order_id)
 )   ;
 
 -- get_view_create
@@ -196,42 +196,42 @@ create table Order_Product (
 -- get_smallpackage_post_sql
 
 -- get_associations_create
-alter table Sales_Order add constraint fk_coupon_id_order 
+alter table sales_orders add constraint fk_coupon_order 
     foreign key (coupon_id)
-    references Coupon (id) ;
-alter table Product_Tag add constraint fk_produc_product_tag 
+    references coupons (id) ;
+alter table product_tags add constraint fk_producs_product_tags 
     foreign key (product_sku)
-    references Product (sku) ;
-alter table Product_Tag add constraint fk_tag_product_tag 
+    references products (sku) ;
+alter table product_tags add constraint fk_tags_product_tags 
     foreign key (tag_id)
-    references Tag (id) ;
-alter table Ec_User_Role add constraint fk_role_id_ec_user_role 
+    references tags (id) ;
+alter table user_roles add constraint fk_roles_user_roles 
     foreign key (role_id)
-    references Role (id) ;
-alter table Ec_User_Role add constraint fk_ec_user_ec_user_role 
+    references roles (id) ;
+alter table user_roles add constraint fk_users_user_roles 
     foreign key (user_id)
-    references Ec_User (id) ;
-alter table Product_Category add constraint fk_category_product_category 
+    references users (id) ;
+alter table product_categories add constraint fk_category_products_categories 
     foreign key (category_id)
-    references Category (id) ;
-alter table Sales_Order add constraint fk_timeframe_sales_order 
+    references categories (id) ;
+alter table sales_orders add constraint fk_time_frame_sales_order 
     foreign key (timeframe_id)
-    references Timeframe (id) ;
-alter table Sales_Order add constraint fk_user_sales_order 
+    references time_frames (id) ;
+alter table sales_orders add constraint fk_user_sales_order 
     foreign key (user_id)
-    references Ec_User (id) ;
-alter table Sales_Order add constraint fk_session_sales_order 
+    references users (id) ;
+alter table sales_orders add constraint fk_session_sales_order 
     foreign key (session_id)
-    references Session (id) ;
-alter table Product add constraint fk_product_status_product 
+    references sessions (id) ;
+alter table products add constraint fk_product_statuses_product 
     foreign key (product_status_id)
-    references Product_Status (id) ;
-alter table Order_Product add constraint fk_order_order_product 
+    references product_statuses (id) ;
+alter table order_products add constraint fk_sales_orders_order_products 
     foreign key (order_id)
-    references Sales_Order (id) ;
-alter table CC_Transaction add constraint fk_order_cc_transaction 
+    references sales_orders (id) ;
+alter table cc_transactions add constraint fk_sales_order_cc_transaction 
     foreign key (order_id)
-    references Sales_Order (id) ;
-alter table Product_Category add constraint fk_product_product_category 
+    references sales_orders (id) ;
+alter table product_categories add constraint fk_product_product_category 
     foreign key (product_sku)
-    references Product (sku) ;
+    references products (sku) ;
