@@ -4,7 +4,7 @@
 -- Architecture         x86_64-linux                                                             
 -- Target Database      postgres                                                                 
 -- Input file           ECommerceDB.dia                                                          
--- Generated at         Thu Dec  8 20:58:55 2016                                                 
+-- Generated at         Wed May 24 20:21:52 2017                                                 
 -- Typemap for postgres not found in input file                                                  
 
 -- get_constraints_drop 
@@ -14,7 +14,6 @@ alter table product_tags drop constraint fk_tags_product_tags ;
 alter table user_roles drop constraint fk_roles_user_roles ;
 alter table user_roles drop constraint fk_users_user_roles ;
 alter table product_categories drop constraint fk_category_products_categories ;
-alter table sales_orders drop constraint fk_time_frame_sales_order ;
 alter table sales_orders drop constraint fk_user_sales_order ;
 alter table sales_orders drop constraint fk_session_sales_order ;
 alter table products drop constraint fk_product_statuses_product ;
@@ -30,7 +29,6 @@ alter table product_categories drop constraint fk_product_product_category ;
 drop table users;
 drop table roles;
 drop table user_roles;
-drop table time_frames;
 drop table categories;
 drop table products;
 drop table tags;
@@ -47,143 +45,133 @@ drop table order_products;
 
 -- get_schema_create
 create table users (
-   id          serial                   not null,
-   username    varchar(255) unique              ,
-   first_name  varchar(255)                     ,
-   last_name   varchar(255)                     ,
-   active      bool                             ,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   id         serial                   not null                  ,
+   username   varchar(255) unique                                ,
+   first_name varchar(255)                                       ,
+   last_name  varchar(255)                                       ,
+   active     bool                                               ,
+   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_users primary key (id)
 )   ;
 create table roles (
-   id          serial                   not null,
-   name        varchar(255)                     ,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   id         serial                   not null                  ,
+   name       varchar(255)                                       ,
+   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_roles primary key (id)
 )   ;
 create table user_roles (
-   user_id     integer                  not null,
-   role_id     integer                  not null,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   user_id    integer                  not null                  ,
+   role_id    integer                  not null                  ,
+   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_user_roles primary key (user_id,role_id)
 )   ;
-create table time_frames (
-   id          serial                   not null,
-   start_time  time with time zone              ,
-   end_time    time with time zone              ,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
-   constraint pk_time_frames primary key (id)
-)   ;
 create table categories (
-   id          serial                   not null,
-   name        varchar(255)                     ,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   id         serial                   not null                  ,
+   name       varchar(255)                                       ,
+   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_categories primary key (id)
 )   ;
 create table products (
-   sku               varchar(255)             not null,
-   name              varchar(255)                     ,
-   description       text                             ,
-   product_status_id integer                          ,
-   regular_price     numeric                          ,
-   discount_price    numeric                          ,
-   category_id       integer                          ,
-   quantity          integer                          ,
-   taxable           bool                             ,
-   inserted_at       timestamp with time zone         ,
-   updated_at        timestamp with time zone         ,
+   sku               varchar(255)             not null                  ,
+   name              varchar(255)                                       ,
+   description       text                                               ,
+   product_status_id integer                                            ,
+   regular_price     numeric                                            ,
+   discount_price    numeric                                            ,
+   category_id       integer                                            ,
+   quantity          integer                                            ,
+   taxable           bool                                               ,
+   created_at        timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at        timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_products primary key (sku)
 )   ;
 create table tags (
-   id          serial                   not null,
-   name        varchar(255)                     ,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   id         serial                   not null                  ,
+   name       varchar(255)                                       ,
+   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_tags primary key (id)
 )   ;
 create table sales_orders (
-   id           serial                   not null,
-   order_date   date                             ,
-   total        numeric                          ,
-   coupon_id    integer                          ,
-   session_id   varchar(255)                     ,
-   user_id      integer                          ,
-   timeframe_id integer                          ,
-   inserted_at  timestamp with time zone         ,
-   updated_at   timestamp with time zone         ,
+   id         serial                   not null                  ,
+   order_date date                                               ,
+   total      numeric                                            ,
+   coupon_id  integer                                            ,
+   session_id varchar(255)                                       ,
+   user_id    integer                                            ,
+   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_sales_orders primary key (id)
 )   ;
 create table coupons (
-   id          serial                   not null      ,
-   code        varchar(255)                           ,
-   description text                                   ,
-   active      bool                                   ,
-   value       numeric                                ,
-   start_date  timestamp with time zone               ,
-   end_date    timestamp with time zone               ,
-   multiple    bool                      default false,
-   inserted_at timestamp with time zone               ,
-   updated_at  timestamp with time zone               ,
+   id          serial                   not null                  ,
+   code        varchar(255)                                       ,
+   description text                                               ,
+   active      bool                                               ,
+   value       numeric                                            ,
+   start_date  timestamp with time zone                           ,
+   end_date    timestamp with time zone                           ,
+   multiple    bool                      default false            ,
+   created_at  timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at  timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_coupons primary key (id)
 )   ;
 create table product_tags (
-   product_sku varchar(255)             not null,
-   tag_id      integer                  not null,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   product_sku varchar(255)             not null                  ,
+   tag_id      integer                  not null                  ,
+   created_at  timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at  timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_product_tags primary key (product_sku,tag_id)
 )   ;
 create table cc_transactions (
-   code               varchar(255)             not null,
-   order_id           integer                          ,
-   transdate          timestamp with time zone         ,
-   processor          varchar(255)                     ,
-   processor_trans_id varchar(255)                     ,
-   amount             numeric                          ,
-   cc_num             varchar(255)                     ,
-   cc_type            varchar(255)                     ,
-   cc_exp             varchar(255)                     ,
-   response           text                             ,
-   inserted_at        timestamp with time zone         ,
-   updated_at         timestamp with time zone         ,
+   code               varchar(255)             not null                  ,
+   order_id           integer                                            ,
+   transdate          timestamp with time zone                           ,
+   processor          varchar(255)                                       ,
+   processor_trans_id varchar(255)                                       ,
+   amount             numeric                                            ,
+   cc_num             varchar(255)                                       ,
+   cc_type            varchar(255)                                       ,
+   response           text                                               ,
+   created_at         timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at         timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_cc_transactions primary key (code)
 )   ;
 create table sessions (
-   id          varchar(255)             not null,
-   data        text                             ,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   id         varchar(255)             not null                  ,
+   data       text                                               ,
+   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_sessions primary key (id)
 )   ;
 create table product_statuses (
-   id          serial                   not null,
-   name        varchar(255)                     ,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   id         serial                   not null                  ,
+   name       varchar(255)                                       ,
+   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_product_statuses primary key (id)
 )   ;
 create table product_categories (
-   category_id integer                  not null,
-   product_sku varchar(255)             not null,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   category_id integer                  not null                  ,
+   product_sku varchar(255)             not null                  ,
+   created_at  timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at  timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_product_categories primary key (category_id,product_sku)
 )   ;
 create table order_products (
-   sku         varchar(255)             not null,
-   order_id    integer                  not null,
-   name        varchar(255)                     ,
-   description text                             ,
-   price       numeric                          ,
-   quantity    integer                          ,
-   subtotal    numeric                          ,
-   inserted_at timestamp with time zone         ,
-   updated_at  timestamp with time zone         ,
+   sku         varchar(255)             not null                  ,
+   order_id    integer                  not null                  ,
+   name        varchar(255)                                       ,
+   description text                                               ,
+   price       numeric                                            ,
+   quantity    integer                                            ,
+   subtotal    numeric                                            ,
+   created_at  timestamp with time zone  default CURRENT_TIMESTAMP,
+   updated_at  timestamp with time zone  default CURRENT_TIMESTAMP,
    constraint pk_order_products primary key (sku,order_id)
 )   ;
 
@@ -214,9 +202,6 @@ alter table user_roles add constraint fk_users_user_roles
 alter table product_categories add constraint fk_category_products_categories 
     foreign key (category_id)
     references categories (id) ;
-alter table sales_orders add constraint fk_time_frame_sales_order 
-    foreign key (timeframe_id)
-    references time_frames (id) ;
 alter table sales_orders add constraint fk_user_sales_order 
     foreign key (user_id)
     references users (id) ;
