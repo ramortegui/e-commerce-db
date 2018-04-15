@@ -12,10 +12,6 @@ In order to make changes and re-generate the sql statements you could use
 
 `parsediasql --file ECommerceDB.dia --db postgres >> ecommercedb.sql`
 
-<<<<<<< HEAD
 ## Diagram
-=======
-##Diagram
->>>>>>> d7760eb97584b5240687538c689be122e1168972
 
 ![ECommerceDB.png](https://github.com/ramortegui/e-commerce-db/blob/master/ECommerceDB.png)
