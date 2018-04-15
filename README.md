@@ -20,16 +20,18 @@ In order to make changes and re-generate the sql statements you could use
 
 [ecommerce-db.html](https://github.com/ramortegui/e-commerce-db/blob/master/export/ecommerce-db.html)
 
-## Exports
+## Scripts
 
-ecommerce-db-db2.sql
-ecommerce-db-informix.sql
-ecommerce-db-ingres.sql
-ecommerce-db-mysql-innodb.sql
-ecommerce-db-mysql-myisam.sql
-ecommerce-db-oracle.sql
-ecommerce-db-postgres.sql
-ecommerce-db-sas.sql
-ecommerce-db-sqlite3fk.sql
-ecommerce-db-sqlite3.sql
-ecommerce-db-sybase.sql
+[exports](https://github.com/ramortegui/e-commerce-db/blob/master/export/)
+
+    - ecommerce-db-db2.sql
+    - ecommerce-db-informix.sql
+    - ecommerce-db-ingres.sql
+    - ecommerce-db-mysql-innodb.sql
+    - ecommerce-db-mysql-myisam.sql
+    - ecommerce-db-oracle.sql
+    - ecommerce-db-postgres.sql
+    - ecommerce-db-sas.sql
+    - ecommerce-db-sqlite3fk.sql
+    - ecommerce-db-sqlite3.sql
+    - ecommerce-db-sybase.sql
