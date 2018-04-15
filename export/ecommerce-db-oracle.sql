@@ -1,24 +1,15 @@
--- Parse::SQL::Dia      version 0.27                                                             
--- Documentation        http://search.cpan.org/dist/Parse-Dia-SQL/                               
--- Environment          Perl 5.024000, /home/ramortegui/perl5/perlbrew/perls/perl-5.24.0/bin/perl
--- Architecture         x86_64-linux                                                             
--- Target Database      postgres                                                                 
--- Input file           ECommerceDB.dia                                                          
--- Generated at         Wed May 24 20:21:52 2017                                                 
--- Typemap for postgres not found in input file                                                  
+-- Parse::SQL::Dia    version 0.27                                                             
+-- Documentation      http://search.cpan.org/dist/Parse-Dia-SQL/                               
+-- Environment        Perl 5.024000, /home/ramortegui/perl5/perlbrew/perls/perl-5.24.0/bin/perl
+-- Architecture       x86_64-linux                                                             
+-- Target Database    oracle                                                                   
+-- Input file         ECommerceDB.dia                                                          
+-- Generated at       Sat Apr 14 20:28:46 2018                                                 
+-- Typemap for oracle not found in input file                                                  
 
 -- get_constraints_drop 
-alter table sales_orders drop constraint fk_coupon_order ;
 alter table product_tags drop constraint fk_producs_product_tags ;
-alter table product_tags drop constraint fk_tags_product_tags ;
-alter table user_roles drop constraint fk_roles_user_roles ;
-alter table user_roles drop constraint fk_users_user_roles ;
-alter table product_categories drop constraint fk_category_products_categories ;
-alter table sales_orders drop constraint fk_user_sales_order ;
 alter table sales_orders drop constraint fk_session_sales_order ;
-alter table products drop constraint fk_product_statuses_product ;
-alter table order_products drop constraint fk_sales_orders_order_products ;
-alter table cc_transactions drop constraint fk_sales_order_cc_transaction ;
 alter table product_categories drop constraint fk_product_product_category ;
 
 -- get_permissions_drop 
@@ -184,39 +175,12 @@ create table order_products (
 -- get_smallpackage_post_sql
 
 -- get_associations_create
-alter table sales_orders add constraint fk_coupon_order 
-    foreign key (coupon_id)
-    references coupons (id) ;
 alter table product_tags add constraint fk_producs_product_tags 
     foreign key (product_sku)
     references products (sku) ;
-alter table product_tags add constraint fk_tags_product_tags 
-    foreign key (tag_id)
-    references tags (id) ;
-alter table user_roles add constraint fk_roles_user_roles 
-    foreign key (role_id)
-    references roles (id) ;
-alter table user_roles add constraint fk_users_user_roles 
-    foreign key (user_id)
-    references users (id) ;
-alter table product_categories add constraint fk_category_products_categories 
-    foreign key (category_id)
-    references categories (id) ;
-alter table sales_orders add constraint fk_user_sales_order 
-    foreign key (user_id)
-    references users (id) ;
 alter table sales_orders add constraint fk_session_sales_order 
     foreign key (session_id)
     references sessions (id) ;
-alter table products add constraint fk_product_statuses_product 
-    foreign key (product_status_id)
-    references product_statuses (id) ;
-alter table order_products add constraint fk_sales_orders_order_products 
-    foreign key (order_id)
-    references sales_orders (id) ;
-alter table cc_transactions add constraint fk_sales_order_cc_transaction 
-    foreign key (order_id)
-    references sales_orders (id) ;
 alter table product_categories add constraint fk_product_product_category 
     foreign key (product_sku)
     references products (sku) ;
