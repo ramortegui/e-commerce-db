@@ -18,7 +18,7 @@ In order to make changes and re-generate the sql statements you could use
 
 ## Html info
 
-[ecommerce-db.html](https://github.com/ramortegui/e-commerce-db/blob/master/export/ecommerce-db.html)
+[ecommerce-db.html](http://htmlpreview.github.io/?https://github.com/ramortegui/e-commerce-db/blob/master/export/ecommerce-db.html)
 
 ## Scripts
 
