@@ -4,15 +4,11 @@
 -- Architecture       darwin-2level                                                             
 -- Target Database    sybase                                                                    
 -- Input file         ECommerceDB.dia                                                           
--- Generated at       Thu May 17 22:09:01 2018                                                  
+-- Generated at       Fri May 18 08:23:47 2018                                                  
 -- Typemap for sybase not found in input file                                                   
 
 -- get_constraints_drop 
-alter table product_tags drop constraint fk_producs_product_tags 
-go
 alter table sales_orders drop constraint fk_session_sales_order 
-go
-alter table product_categories drop constraint fk_product_product_category 
 go
 
 -- get_permissions_drop 
@@ -53,146 +49,149 @@ go
 
 -- get_schema_create
 create table users (
-   id         serial                   not null                  ,
-   email      varchar(255) unique                                ,
-   first_name varchar(255)                                       ,
-   last_name  varchar(255)                                       ,
-   active     bool                                               ,
-   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   id          serial                   not null         ,
+   email       varchar(255)             not null         ,
+   first_name  varchar(255)             not null         ,
+   last_name   varchar(255)             not null         ,
+   active      bool                      default true    ,
+   inserted_at timestamp with time zone  default not_null,
+   updated_at  timestamp with time zone  default not_null,
    constraint pk_users primary key (id)
 )   
 go
 create table roles (
-   id         serial                   not null                  ,
-   name       varchar(255)                                       ,
-   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   id          serial                   not null         ,
+   name        varchar(255)             not null         ,
+   inserted_at timestamp with timezone  not null         ,
+   updated_at  timestamp with time zone  default not_null,
    constraint pk_roles primary key (id)
 )   
 go
 create table user_roles (
-   user_id    integer                  not null                  ,
-   role_id    integer                  not null                  ,
-   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   user_id     integer                  not null         ,
+   role_id     integer                  not null         ,
+   inserted_at timestamp with time zone  default not_null,
+   updated_at  timestamp with time zone  default not_null,
    constraint pk_user_roles primary key (user_id,role_id)
 )   
 go
 create table categories (
-   id         serial                   not null                  ,
-   name       varchar(255)                                       ,
-   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   id          serial                   not null,
+   name        varchar(255)             not null,
+   parent_id   integer                          ,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
    constraint pk_categories primary key (id)
 )   
 go
 create table products (
-   sku               varchar(255)             not null                  ,
-   name              varchar(255)                                       ,
-   description       text                                               ,
-   product_status_id integer                                            ,
-   regular_price     numeric                                            ,
-   discount_price    numeric                                            ,
-   quantity          integer                                            ,
-   taxable           bool                                               ,
-   created_at        timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at        timestamp with time zone  default CURRENT_TIMESTAMP,
-   constraint pk_products primary key (sku)
+   id                serial                   not null      ,
+   sku               varchar(255)             not null      ,
+   name              varchar(255)             not null      ,
+   description       text                                   ,
+   product_status_id integer                  not null      ,
+   regular_price     numeric                   default 0    ,
+   discount_price    numeric                   default 0    ,
+   quantity          integer                   default 0    ,
+   taxable           bool                      default false,
+   inserted_at       timestamp with time zone not null      ,
+   updated_at        timestamp with time zone not null      ,
+   constraint pk_products primary key (id)
 )   
 go
 create table tags (
-   id         serial                   not null                  ,
-   name       varchar(255)                                       ,
-   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   id          serial                   not null,
+   name        varchar(255)             not null,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
    constraint pk_tags primary key (id)
 )   
 go
 create table sales_orders (
-   id         serial                   not null                  ,
-   order_date date                                               ,
-   total      numeric                                            ,
-   coupon_id  integer                                            ,
-   session_id varchar(255)                                       ,
-   user_id    integer                                            ,
-   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   id          serial                   not null,
+   order_date  date                     not null,
+   total       numeric                  not null,
+   coupon_id   integer                          ,
+   session_id  varchar(255)             not null,
+   user_id     integer                  not null,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
    constraint pk_sales_orders primary key (id)
 )   
 go
 create table coupons (
-   id          serial                   not null                  ,
-   code        varchar(255)                                       ,
-   description text                                               ,
-   active      bool                                               ,
-   value       numeric                                            ,
-   start_date  timestamp with time zone                           ,
-   end_date    timestamp with time zone                           ,
-   multiple    bool                      default false            ,
-   created_at  timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at  timestamp with time zone  default CURRENT_TIMESTAMP,
+   id          serial                   not null      ,
+   code        varchar(255)             not null      ,
+   description text                                   ,
+   active      bool                      default true ,
+   value       numeric                                ,
+   multiple    bool                      default false,
+   start_date  timestamp with time zone               ,
+   end_date    timestamp with time zone               ,
+   inserted_at timestamp with time zone not null      ,
+   updated_at  timestamp with time zone not null      ,
    constraint pk_coupons primary key (id)
 )   
 go
 create table product_tags (
-   product_sku varchar(255)             not null                  ,
-   tag_id      integer                  not null                  ,
-   created_at  timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at  timestamp with time zone  default CURRENT_TIMESTAMP,
-   constraint pk_product_tags primary key (product_sku,tag_id)
+   product_id  varchar(255)             not null,
+   tag_id      integer                  not null,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
+   constraint pk_product_tags primary key (product_id,tag_id)
 )   
 go
 create table cc_transactions (
-   code               varchar(255)             not null                  ,
-   order_id           integer                                            ,
-   transdate          timestamp with time zone                           ,
-   processor          varchar(255)                                       ,
-   processor_trans_id varchar(255)                                       ,
-   amount             numeric                                            ,
-   cc_num             varchar(255)                                       ,
-   cc_type            varchar(255)                                       ,
-   response           text                                               ,
-   created_at         timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at         timestamp with time zone  default CURRENT_TIMESTAMP,
+   code               varchar(255)             not null,
+   order_id           integer                  not null,
+   transdate          timestamp with time zone         ,
+   processor          varchar(255)             not null,
+   processor_trans_id varchar(255)             not null,
+   amount             numeric                  not null,
+   cc_num             varchar(255)                     ,
+   cc_type            varchar(255)                     ,
+   response           text                             ,
+   inserted_at        timestamp with time zone not null,
+   updated_at         timestamp with time zone not null,
    constraint pk_cc_transactions primary key (code)
 )   
 go
 create table sessions (
-   id         varchar(255)             not null                  ,
-   data       text                                               ,
-   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   id          varchar(255)             not null,
+   data        text                             ,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
    constraint pk_sessions primary key (id)
 )   
 go
 create table product_statuses (
-   id         serial                   not null                  ,
-   name       varchar(255)                                       ,
-   created_at timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at timestamp with time zone  default CURRENT_TIMESTAMP,
+   id          serial                   not null,
+   name        varchar(255)             not null,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
    constraint pk_product_statuses primary key (id)
 )   
 go
 create table product_categories (
-   category_id integer                  not null                  ,
-   product_sku varchar(255)             not null                  ,
-   created_at  timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at  timestamp with time zone  default CURRENT_TIMESTAMP,
-   constraint pk_product_categories primary key (category_id,product_sku)
+   category_id integer                  not null,
+   product_id  varchar(255)             not null,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
+   constraint pk_product_categories primary key (category_id,product_id)
 )   
 go
 create table order_products (
-   sku         varchar(255)             not null                  ,
-   order_id    integer                  not null                  ,
-   name        varchar(255)                                       ,
-   description text                                               ,
-   price       numeric                                            ,
-   quantity    integer                                            ,
-   subtotal    numeric                                            ,
-   created_at  timestamp with time zone  default CURRENT_TIMESTAMP,
-   updated_at  timestamp with time zone  default CURRENT_TIMESTAMP,
-   constraint pk_order_products primary key (sku,order_id)
+   product_id  varchar(255)             not null,
+   order_id    integer                  not null,
+   sku         varchar(255)             not null,
+   name        varchar(255)             not null,
+   description text                             ,
+   price       numeric                  not null,
+   quantity    integer                  not null,
+   subtotal    numeric                  not null,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
+   constraint pk_order_products primary key (product_id,order_id)
 )   
 go
 
@@ -205,15 +204,7 @@ go
 -- get_smallpackage_post_sql
 
 -- get_associations_create
-alter table product_tags add constraint fk_producs_product_tags 
-    foreign key (product_sku)
-    references products (sku) 
-go
 alter table sales_orders add constraint fk_session_sales_order 
     foreign key (session_id)
     references sessions (id) 
-go
-alter table product_categories add constraint fk_product_product_category 
-    foreign key (product_sku)
-    references products (sku) 
 go
