@@ -6,7 +6,7 @@ Environment     Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.
 Architecture    darwin-2level                                                             
 Target Database html                                                                      
 Input file      ECommerceDB.dia                                                           
-Generated at    Fri May 18 08:23:44 2018                                                  
+Generated at    Fri May 18 10:29:26 2018                                                  
  -->
 </head><body>
 <h1>Data Dictionary for ECommerceDB.dia</h1>
@@ -117,7 +117,7 @@ Generated at    Fri May 18 08:23:44 2018
 
 <table border='1' cellspacing='0' cellpadding='1'>
 <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
-<tr><td><b>id</b></td><td>serial</td><td>not null</td><td>&nbsp;</td></tr><tr><td>name</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with timezone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not_null</td><td>&nbsp;</td></tr>
+<tr><td><b>id</b></td><td>serial</td><td>not null</td><td>&nbsp;</td></tr><tr><td>name</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
 </table>
 
 
@@ -165,7 +165,7 @@ Generated at    Fri May 18 08:23:44 2018
 
 <table border='1' cellspacing='0' cellpadding='1'>
 <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
-<tr><td><b>user_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td><b>role_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not_null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not_null</td><td>&nbsp;</td></tr>
+<tr><td><b>user_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td><b>role_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
 </table>
 
 
@@ -177,10 +177,10 @@ Generated at    Fri May 18 08:23:44 2018
 
 <table border='1' cellspacing='0' cellpadding='1'>
 <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
-<tr><td><b>id</b></td><td>serial</td><td>not null</td><td>&nbsp;</td></tr><tr><td>email</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>first_name</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>last_name</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>active</td><td>bool</td><td>true</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not_null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not_null</td><td>&nbsp;</td></tr>
+<tr><td><b>id</b></td><td>serial</td><td>not null</td><td>&nbsp;</td></tr><tr><td>email</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>first_name</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>last_name</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>active</td><td>bool</td><td>true</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
 </table>
 
 
 
 <hr width='80%'/>
-<p style="font-size:75%">Generated at Fri May 18 08:23:44 2018.</p></body></html>
+<p style="font-size:75%">Generated at Fri May 18 10:29:26 2018.</p></body></html>

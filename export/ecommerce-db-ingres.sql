@@ -4,7 +4,7 @@
 -- Architecture       darwin-2level                                                             
 -- Target Database    ingres                                                                    
 -- Input file         ECommerceDB.dia                                                           
--- Generated at       Fri May 18 08:23:44 2018                                                  
+-- Generated at       Fri May 18 10:29:27 2018                                                  
 -- Typemap for ingres not found in input file                                                   
 
 -- get_constraints_drop 
@@ -49,29 +49,29 @@ drop table order_products
 
 -- get_schema_create
 create table users (
-   id          serial                   not null         ,
-   email       varchar(255)             not null         ,
-   first_name  varchar(255)             not null         ,
-   last_name   varchar(255)             not null         ,
-   active      bool                      default true    ,
-   inserted_at timestamp with time zone  default not_null,
-   updated_at  timestamp with time zone  default not_null,
+   id          serial                   not null     ,
+   email       varchar(255)             not null     ,
+   first_name  varchar(255)             not null     ,
+   last_name   varchar(255)             not null     ,
+   active      bool                      default true,
+   inserted_at timestamp with time zone not null     ,
+   updated_at  timestamp with time zone not null     ,
    constraint pk_users primary key (id)
 )   
 \g
 create table roles (
-   id          serial                   not null         ,
-   name        varchar(255)             not null         ,
-   inserted_at timestamp with timezone  not null         ,
-   updated_at  timestamp with time zone  default not_null,
+   id          serial                   not null,
+   name        varchar(255)             not null,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
    constraint pk_roles primary key (id)
 )   
 \g
 create table user_roles (
-   user_id     integer                  not null         ,
-   role_id     integer                  not null         ,
-   inserted_at timestamp with time zone  default not_null,
-   updated_at  timestamp with time zone  default not_null,
+   user_id     integer                  not null,
+   role_id     integer                  not null,
+   inserted_at timestamp with time zone not null,
+   updated_at  timestamp with time zone not null,
    constraint pk_user_roles primary key (user_id,role_id)
 )   
 \g
