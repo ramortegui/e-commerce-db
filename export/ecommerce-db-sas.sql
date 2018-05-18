@@ -4,7 +4,7 @@
 -- Architecture    darwin-2level                                                             
 -- Target Database sas                                                                       
 -- Input file      ECommerceDB.dia                                                           
--- Generated at    Fri May 18 10:29:29 2018                                                  
+-- Generated at    Fri May 18 13:26:19 2018                                                  
 -- Typemap for sas not found in input file                                                   
 
 -- get_constraints_drop 

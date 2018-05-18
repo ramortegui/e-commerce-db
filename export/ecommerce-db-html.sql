@@ -6,7 +6,7 @@ Environment     Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.
 Architecture    darwin-2level                                                             
 Target Database html                                                                      
 Input file      ECommerceDB.dia                                                           
-Generated at    Fri May 18 10:29:26 2018                                                  
+Generated at    Fri May 18 13:26:16 2018                                                  
  -->
 </head><body>
 <h1>Data Dictionary for ECommerceDB.dia</h1>
@@ -183,4 +183,4 @@ Generated at    Fri May 18 10:29:26 2018
 
 
 <hr width='80%'/>
-<p style="font-size:75%">Generated at Fri May 18 10:29:26 2018.</p></body></html>
+<p style="font-size:75%">Generated at Fri May 18 13:26:16 2018.</p></body></html>

@@ -4,7 +4,7 @@
 -- Architecture       darwin-2level                                                             
 -- Target Database    oracle                                                                    
 -- Input file         ECommerceDB.dia                                                           
--- Generated at       Fri May 18 10:29:28 2018                                                  
+-- Generated at       Fri May 18 13:26:18 2018                                                  
 -- Typemap for oracle not found in input file                                                   
 
 -- get_constraints_drop 

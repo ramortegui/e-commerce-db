@@ -4,7 +4,7 @@
 -- Architecture       darwin-2level                                                             
 -- Target Database    sybase                                                                    
 -- Input file         ECommerceDB.dia                                                           
--- Generated at       Fri May 18 10:29:30 2018                                                  
+-- Generated at       Fri May 18 13:26:20 2018                                                  
 -- Typemap for sybase not found in input file                                                   
 
 -- get_constraints_drop 
