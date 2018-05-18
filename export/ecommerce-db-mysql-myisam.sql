@@ -4,7 +4,7 @@
 -- Architecture             darwin-2level                                                             
 -- Target Database          mysql-myisam                                                              
 -- Input file               ECommerceDB.dia                                                           
--- Generated at             Thu May 17 22:05:26 2018                                                  
+-- Generated at             Thu May 17 22:08:59 2018                                                  
 -- Typemap for mysql-myisam not found in input file                                                   
 
 -- get_constraints_drop 
@@ -73,7 +73,6 @@ create table products (
    product_status_id integer                                            ,
    regular_price     numeric                                            ,
    discount_price    numeric                                            ,
-   category_id       integer                                            ,
    quantity          integer                                            ,
    taxable           bool                                               ,
    created_at        timestamp with time zone  default CURRENT_TIMESTAMP,

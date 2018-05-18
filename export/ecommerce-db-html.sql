@@ -6,7 +6,7 @@ Environment     Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.
 Architecture    darwin-2level                                                             
 Target Database html                                                                      
 Input file      ECommerceDB.dia                                                           
-Generated at    Thu May 17 22:05:24 2018                                                  
+Generated at    Thu May 17 22:08:58 2018                                                  
  -->
 </head><body>
 <h1>Data Dictionary for ECommerceDB.dia</h1>
@@ -105,7 +105,7 @@ Generated at    Thu May 17 22:05:24 2018
 <p>Referenced by: <a href='#product_tags'>product_tags</a>, <a href='#product_categories'>product_categories</a></p>
 <table border='1' cellspacing='0' cellpadding='1'>
 <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
-<tr><td><b>sku</b></td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>name</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>description</td><td>text</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>product_status_id</td><td>integer</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>regular_price</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>discount_price</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>category_id</td><td>integer</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>quantity</td><td>integer</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>taxable</td><td>bool</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>created_at</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+<tr><td><b>sku</b></td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>name</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>description</td><td>text</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>product_status_id</td><td>integer</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>regular_price</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>discount_price</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>quantity</td><td>integer</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>taxable</td><td>bool</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>created_at</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
 </table>
 
 
@@ -183,4 +183,4 @@ Generated at    Thu May 17 22:05:24 2018
 
 
 <hr width='80%'/>
-<p style="font-size:75%">Generated at Thu May 17 22:05:24 2018.</p></body></html>
+<p style="font-size:75%">Generated at Thu May 17 22:08:58 2018.</p></body></html>
