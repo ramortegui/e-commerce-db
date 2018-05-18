@@ -1,11 +1,11 @@
--- Parse::SQL::Dia     version 0.27                                                             
--- Documentation       http://search.cpan.org/dist/Parse-Dia-SQL/                               
--- Environment         Perl 5.024000, /home/ramortegui/perl5/perlbrew/perls/perl-5.24.0/bin/perl
--- Architecture        x86_64-linux                                                             
--- Target Database     sqlite3                                                                  
--- Input file          ECommerceDB.dia                                                          
--- Generated at        Sat Apr 14 20:28:47 2018                                                 
--- Typemap for sqlite3 not found in input file                                                  
+-- Parse::SQL::Dia     version 0.30                                                              
+-- Documentation       http://search.cpan.org/dist/Parse-Dia-SQL/                                
+-- Environment         Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.1/bin/perl
+-- Architecture        darwin-2level                                                             
+-- Target Database     sqlite3                                                                   
+-- Input file          ECommerceDB.dia                                                           
+-- Generated at        Thu May 17 22:05:27 2018                                                  
+-- Typemap for sqlite3 not found in input file                                                   
 
 -- get_constraints_drop 
 drop trigger if exists fk_producs_product_tags_bi_tr;
@@ -50,7 +50,7 @@ drop table if exists order_products;
 
 create table users (
    id         serial                   not null                  ,
-   username   varchar(255) unique                                ,
+   email      varchar(255) unique                                ,
    first_name varchar(255)                                       ,
    last_name  varchar(255)                                       ,
    active     bool                                               ,
