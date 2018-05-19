@@ -4,7 +4,7 @@
 -- Architecture         darwin-2level                                                             
 -- Target Database      postgres                                                                  
 -- Input file           ECommerceDB.dia                                                           
--- Generated at         Fri May 18 13:26:18 2018                                                  
+-- Generated at         Fri May 18 21:16:57 2018                                                  
 -- Typemap for postgres not found in input file                                                   
 
 -- get_constraints_drop 
@@ -128,7 +128,8 @@ create table product_tags (
    constraint pk_product_tags primary key (product_id,tag_id)
 )   ;
 create table cc_transactions (
-   code               varchar(255)             not null,
+   id                 serial                   not null,
+   code               varchar(255)                     ,
    order_id           integer                  not null,
    transdate          timestamp with time zone         ,
    processor          varchar(255)             not null,
@@ -139,7 +140,7 @@ create table cc_transactions (
    response           text                             ,
    inserted_at        timestamp with time zone not null,
    updated_at         timestamp with time zone not null,
-   constraint pk_cc_transactions primary key (code)
+   constraint pk_cc_transactions primary key (id)
 )   ;
 create table sessions (
    id          varchar(255)             not null,
@@ -163,8 +164,8 @@ create table product_categories (
    constraint pk_product_categories primary key (category_id,product_id)
 )   ;
 create table order_products (
-   product_id  varchar(255)             not null,
-   order_id    integer                  not null,
+   id          serial                   not null,
+   order_id    integer                          ,
    sku         varchar(255)             not null,
    name        varchar(255)             not null,
    description text                             ,
@@ -173,7 +174,7 @@ create table order_products (
    subtotal    numeric                  not null,
    inserted_at timestamp with time zone not null,
    updated_at  timestamp with time zone not null,
-   constraint pk_order_products primary key (product_id,order_id)
+   constraint pk_order_products primary key (id)
 )   ;
 
 -- get_view_create

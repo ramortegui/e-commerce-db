@@ -6,7 +6,7 @@ Environment     Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.
 Architecture    darwin-2level                                                             
 Target Database html                                                                      
 Input file      ECommerceDB.dia                                                           
-Generated at    Fri May 18 13:26:16 2018                                                  
+Generated at    Fri May 18 21:16:55 2018                                                  
  -->
 </head><body>
 <h1>Data Dictionary for ECommerceDB.dia</h1>
@@ -33,7 +33,7 @@ Generated at    Fri May 18 13:26:16 2018
 
 <table border='1' cellspacing='0' cellpadding='1'>
 <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
-<tr><td><b>code</b></td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>order_id</td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>transdate</td><td>timestamp with time zone</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>processor</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>processor_trans_id</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>amount</td><td>numeric</td><td>not null</td><td>&nbsp;</td></tr><tr><td>cc_num</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>cc_type</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>response</td><td>text</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
+<tr><td><b>id</b></td><td>serial</td><td>not null</td><td>&nbsp;</td></tr><tr><td>code</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>order_id</td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>transdate</td><td>timestamp with time zone</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>processor</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>processor_trans_id</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>amount</td><td>numeric</td><td>not null</td><td>&nbsp;</td></tr><tr><td>cc_num</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>cc_type</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>response</td><td>text</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
 </table>
 
 
@@ -57,7 +57,7 @@ Generated at    Fri May 18 13:26:16 2018
 
 <table border='1' cellspacing='0' cellpadding='1'>
 <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
-<tr><td><b>product_id</b></td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td><b>order_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>sku</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>name</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>description</td><td>text</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>price</td><td>numeric</td><td>not null</td><td>&nbsp;</td></tr><tr><td>quantity</td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>subtotal</td><td>numeric</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
+<tr><td><b>id</b></td><td>serial</td><td>not null</td><td>&nbsp;</td></tr><tr><td>order_id</td><td>integer</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>sku</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>name</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>description</td><td>text</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>price</td><td>numeric</td><td>not null</td><td>&nbsp;</td></tr><tr><td>quantity</td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>subtotal</td><td>numeric</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
 </table>
 
 
@@ -183,4 +183,4 @@ Generated at    Fri May 18 13:26:16 2018
 
 
 <hr width='80%'/>
-<p style="font-size:75%">Generated at Fri May 18 13:26:16 2018.</p></body></html>
+<p style="font-size:75%">Generated at Fri May 18 21:16:55 2018.</p></body></html>
