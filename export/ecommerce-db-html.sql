@@ -6,7 +6,7 @@ Environment     Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.
 Architecture    darwin-2level                                                             
 Target Database html                                                                      
 Input file      ECommerceDB.dia                                                           
-Generated at    Fri May 18 21:16:55 2018                                                  
+Generated at    Mon May 21 21:06:16 2018                                                  
  -->
 </head><body>
 <h1>Data Dictionary for ECommerceDB.dia</h1>
@@ -69,7 +69,7 @@ Generated at    Fri May 18 21:16:55 2018
 
 <table border='1' cellspacing='0' cellpadding='1'>
 <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
-<tr><td><b>category_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td><b>product_id</b></td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
+<tr><td><b>category_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td><b>product_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
 </table>
 
 
@@ -93,7 +93,7 @@ Generated at    Fri May 18 21:16:55 2018
 
 <table border='1' cellspacing='0' cellpadding='1'>
 <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
-<tr><td><b>product_id</b></td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr><tr><td><b>tag_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
+<tr><td><b>product_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td><b>tag_id</b></td><td>integer</td><td>not null</td><td>&nbsp;</td></tr><tr><td>inserted_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr><tr><td>updated_at</td><td>timestamp with time zone</td><td>not null</td><td>&nbsp;</td></tr>
 </table>
 
 
@@ -183,4 +183,4 @@ Generated at    Fri May 18 21:16:55 2018
 
 
 <hr width='80%'/>
-<p style="font-size:75%">Generated at Fri May 18 21:16:55 2018.</p></body></html>
+<p style="font-size:75%">Generated at Mon May 21 21:06:16 2018.</p></body></html>

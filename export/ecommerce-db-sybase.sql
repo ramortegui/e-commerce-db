@@ -4,7 +4,7 @@
 -- Architecture       darwin-2level                                                             
 -- Target Database    sybase                                                                    
 -- Input file         ECommerceDB.dia                                                           
--- Generated at       Fri May 18 21:16:59 2018                                                  
+-- Generated at       Mon May 21 21:06:19 2018                                                  
 -- Typemap for sybase not found in input file                                                   
 
 -- get_constraints_drop 
@@ -134,7 +134,7 @@ create table coupons (
 )   
 go
 create table product_tags (
-   product_id  varchar(255)             not null,
+   product_id  integer                  not null,
    tag_id      integer                  not null,
    inserted_at timestamp with time zone not null,
    updated_at  timestamp with time zone not null,
@@ -175,7 +175,7 @@ create table product_statuses (
 go
 create table product_categories (
    category_id integer                  not null,
-   product_id  varchar(255)             not null,
+   product_id  integer                  not null,
    inserted_at timestamp with time zone not null,
    updated_at  timestamp with time zone not null,
    constraint pk_product_categories primary key (category_id,product_id)
