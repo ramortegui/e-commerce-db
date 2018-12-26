@@ -1,12 +1,12 @@
 <html><head>
 <title>Database documentation: ECommerceDB.dia</title>
-<!-- Parse::SQL::Dia version 0.30                                                              
-Documentation   http://search.cpan.org/dist/Parse-Dia-SQL/                                
-Environment     Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.1/bin/perl
-Architecture    darwin-2level                                                             
-Target Database html                                                                      
-Input file      ECommerceDB.dia                                                           
-Generated at    Mon May 21 21:06:16 2018                                                  
+<!-- Parse::SQL::Dia version 0.30                                                             
+Documentation   http://search.cpan.org/dist/Parse-Dia-SQL/                               
+Environment     Perl 5.028001, /home/ramortegui/perl5/perlbrew/perls/perl-5.28.1/bin/perl
+Architecture    x86_64-linux                                                             
+Target Database html                                                                     
+Input file      ECommerceDB.dia                                                          
+Generated at    Tue Dec 25 22:21:44 2018                                                 
  -->
 </head><body>
 <h1>Data Dictionary for ECommerceDB.dia</h1>
@@ -183,4 +183,4 @@ Generated at    Mon May 21 21:06:16 2018
 
 
 <hr width='80%'/>
-<p style="font-size:75%">Generated at Mon May 21 21:06:16 2018.</p></body></html>
+<p style="font-size:75%">Generated at Tue Dec 25 22:21:44 2018.</p></body></html>

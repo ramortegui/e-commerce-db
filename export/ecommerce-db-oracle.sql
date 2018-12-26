@@ -1,11 +1,11 @@
--- Parse::SQL::Dia    version 0.30                                                              
--- Documentation      http://search.cpan.org/dist/Parse-Dia-SQL/                                
--- Environment        Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.1/bin/perl
--- Architecture       darwin-2level                                                             
--- Target Database    oracle                                                                    
--- Input file         ECommerceDB.dia                                                           
--- Generated at       Mon May 21 21:06:17 2018                                                  
--- Typemap for oracle not found in input file                                                   
+-- Parse::SQL::Dia    version 0.30                                                             
+-- Documentation      http://search.cpan.org/dist/Parse-Dia-SQL/                               
+-- Environment        Perl 5.028001, /home/ramortegui/perl5/perlbrew/perls/perl-5.28.1/bin/perl
+-- Architecture       x86_64-linux                                                             
+-- Target Database    oracle                                                                   
+-- Input file         ECommerceDB.dia                                                          
+-- Generated at       Tue Dec 25 22:21:45 2018                                                 
+-- Typemap for oracle not found in input file                                                  
 
 -- get_constraints_drop 
 alter table sales_orders drop constraint fk_session_sales_order ;
