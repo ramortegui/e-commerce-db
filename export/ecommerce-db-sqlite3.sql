@@ -1,11 +1,11 @@
--- Parse::SQL::Dia     version 0.30                                                              
--- Documentation       http://search.cpan.org/dist/Parse-Dia-SQL/                                
--- Environment         Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.1/bin/perl
--- Architecture        darwin-2level                                                             
--- Target Database     sqlite3                                                                   
--- Input file          ECommerceDB.dia                                                           
--- Generated at        Mon May 21 21:06:18 2018                                                  
--- Typemap for sqlite3 not found in input file                                                   
+-- Parse::SQL::Dia     version 0.30                                                             
+-- Documentation       http://search.cpan.org/dist/Parse-Dia-SQL/                               
+-- Environment         Perl 5.028001, /home/ramortegui/perl5/perlbrew/perls/perl-5.28.1/bin/perl
+-- Architecture        x86_64-linux                                                             
+-- Target Database     sqlite3                                                                  
+-- Input file          ECommerceDB.dia                                                          
+-- Generated at        Tue Dec 25 22:21:46 2018                                                 
+-- Typemap for sqlite3 not found in input file                                                  
 
 -- get_constraints_drop 
 drop trigger if exists fk_session_sales_order_bi_tr;

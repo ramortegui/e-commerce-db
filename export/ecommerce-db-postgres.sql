@@ -1,15 +1,15 @@
--- Parse::SQL::Dia      version 0.30                                                              
--- Documentation        http://search.cpan.org/dist/Parse-Dia-SQL/                                
--- Environment          Perl 5.026001, /Users/ramortegui/perl5/perlbrew/perls/perl-5.26.1/bin/perl
--- Architecture         darwin-2level                                                             
--- Target Database      postgres                                                                  
--- Input file           ECommerceDB.dia                                                           
--- Generated at         Mon May 21 21:06:18 2018                                                  
--- Typemap for postgres not found in input file                                                   
+-- Parse::SQL::Dia      version 0.30                                                             
+-- Documentation        http://search.cpan.org/dist/Parse-Dia-SQL/                               
+-- Environment          Perl 5.028001, /home/ramortegui/perl5/perlbrew/perls/perl-5.28.1/bin/perl
+-- Architecture         x86_64-linux                                                             
+-- Target Database      postgres                                                                 
+-- Input file           ECommerceDB.dia                                                          
+-- Generated at         Tue Dec 25 22:21:45 2018                                                 
+-- Typemap for postgres not found in input file                                                  
 
 -- get_constraints_drop 
 alter table sales_orders drop constraint fk_coupon_order ;
-alter table product_tags drop constraint fk_producs_product_tags ;
+alter table product_tags drop constraint fk_products_product_tags ;
 alter table product_tags drop constraint fk_tags_product_tags ;
 alter table user_roles drop constraint fk_roles_user_roles ;
 alter table user_roles drop constraint fk_users_user_roles ;
@@ -191,7 +191,7 @@ create table order_products (
 alter table sales_orders add constraint fk_coupon_order 
     foreign key (coupon_id)
     references coupons (id) ;
-alter table product_tags add constraint fk_producs_product_tags 
+alter table product_tags add constraint fk_products_product_tags 
     foreign key (product_id)
     references products (id) ;
 alter table product_tags add constraint fk_tags_product_tags 
